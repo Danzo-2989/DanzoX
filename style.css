@@ -1,0 +1,99 @@
+/* style.css */
+body { 
+    background-color: #000000; 
+    color: white; 
+    font-family: sans-serif; 
+}
+
+/* Animasi Rainbow untuk Header */
+@keyframes hueRotate {
+    from { filter: hue-rotate(0deg); }
+    to { filter: hue-rotate(360deg); }
+}
+.animate-rainbow { 
+    animation: hueRotate 5s linear infinite; 
+}
+
+/* Card Neon Animasi */
+.card-neon {
+    position: relative; 
+    background: #000000; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    z-index: 1;
+}
+.card-neon::before {
+    content: ''; 
+    position: absolute; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+    background: conic-gradient(transparent, #22c55e, #10b981, transparent 30%);
+    animation: rotate 4s linear infinite; 
+    z-index: -2;
+}
+.card-neon::after {
+    content: ''; 
+    position: absolute; 
+    inset: 2px; 
+    background: #000000; 
+    border-radius: 11px; 
+    z-index: -1;
+}
+@keyframes rotate { 
+    from { transform: rotate(0deg); } 
+    to { transform: rotate(360deg); } 
+}
+
+/* Style Pop-up Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85); 
+    align-items: center; 
+    justify-content: center;
+}
+.modal-content {
+    background: #0d0d12; 
+    border: 2px solid #8b5cf6; 
+    border-radius: 20px;
+    width: 90%; 
+    max-width: 450px; 
+    padding: 24px; 
+    position: relative;
+}
+/* MODAL FULL SCREEN KHUSUS GAMBAR */
+#fullScreenQR {
+    display: none; 
+    position: fixed; 
+    z-index: 200; 
+    inset: 0; 
+    background: black; 
+    align-items: center; 
+    justify-content: center;
+}
+/* SATU ANIMASI UNTUK SEMUA */
+@keyframes rainbow-sync {
+    0%   { color: #ff0000; border-color: #ff0000; fill: #ff0000; }
+    20%  { color: #ffff00; border-color: #ffff00; fill: #ffff00; }
+    40%  { color: #00ff00; border-color: #00ff00; fill: #00ff00; }
+    60%  { color: #00ffff; border-color: #00ffff; fill: #00ffff; }
+    80%  { color: #0000ff; border-color: #0000ff; fill: #0000ff; }
+    100% { color: #ff00ff; border-color: #ff00ff; fill: #ff00ff; }
+}
+
+/* CLASS UNTUK BORDER FOTO */
+.profile-rainbow {
+    animation: rainbow-sync 5s linear infinite;
+    box-shadow: 0 0 20px currentColor; /* Glow ikut warna border */
+}
+
+/* CLASS UNTUK TEKS */
+.text-rainbow-sync {
+    animation: rainbow-sync 5s linear infinite;
+    background: none; /* Kita pake color biasa biar sinkron sama border */
+    -webkit-text-fill-color: initial; 
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reseller Panel - Danzo Official</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS ASLI DANZO - JANGAN DIHAPUS */
+        body {
+            background-color: #03270b; /* Background Hijau Gelap Danzo */
+            color: white;
+            font-family: sans-serif;
+        }
+
+        /* --- ANIMASI RAINBOW TEXT --- */
+        @keyframes hueRotate {
+            from { filter: hue-rotate(0deg); }
+            to { filter: hue-rotate(360deg); }
+        }
+        .animate-rainbow {
+            animation: hueRotate 5s linear infinite;
+        }
+
+        /* --- CARD NEON RESELLER (VERSI BESAR) --- */
+        .card-neon-big {
+            position: relative;
+            background: #000000;
+            border-radius: 24px;
+            overflow: hidden;
+            z-index: 1;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .card-neon-big::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, transparent 40%);
+            animation: rotate 3s linear infinite;
+            z-index: -2;
+        }
+
+        .card-neon-big::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            background: #000000;
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- TOMBOL JOIN RAINBOW --- */
+        .btn-join-rainbow {
+            animation: neon-border-rainbow 3s linear infinite;
+            border: 3px solid red !important;
+            background: transparent !important;
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+        }
+
+        @keyframes neon-border-rainbow {
+            0%   { border-color: #ff0000; box-shadow: 0 0 20px #ff0000; color: #ff0000; }
+            33%  { border-color: #00ff00; box-shadow: 0 0 20px #00ff00; color: #00ff00; }
+            66%  { border-color: #0000ff; box-shadow: 0 0 20px #0000ff; color: #0000ff; }
+            100% { border-color: #ff0000; box-shadow: 0 0 20px #ff0000; color: #ff0000; }
+        }
+
+        .btn-join-rainbow:hover {
+            transform: scale(1.05);
+            filter: brightness(1.3);
+            background: white !important;
+            color: black !important;
+        }
+
+        /* --- POPUP MODAL --- */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 100;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #0d0d12;
+            border: 2px solid #ff0000;
+            border-radius: 20px;
+            width: 95%;
+            max-width: 450px;
+            padding: 24px;
+            position: relative;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
+        }
+
+        #fullScreenQR {
+            display: none; 
+            position: fixed; 
+            z-index: 200; 
+            inset: 0; 
+            background: black; 
+            align-items: center; 
+            justify-content: center;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #d1d5db;
+        }
+
+        .check-icon {
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        /* Animasi Tombol Download */
+        .btn-download {
+            background: #1f2937;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        .btn-download:hover {
+            background: #374151;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4">
+
+    <div class="w-full max-w-4xl flex justify-start mb-10">
+        <a href="index.html" class="px-6 py-2 bg-gray-800 rounded-lg font-bold border border-gray-600 hover:bg-gray-700 transition text-sm">
+            ← KEMBALI
+        </a>
+    </div>
+
+    <div class="text-center mb-12 animate-rainbow">
+        <h1 class="text-4xl font-black tracking-tighter uppercase italic">
+            RESELLER PANEL
+        </h1>
+        <p class="text-gray-400 tracking-[0.3em] text-xs mt-2">BECOME A PART OF DANZO STORE</p>
+    </div>
+
+    <div class="card-neon-big">
+        <div class="p-8 relative z-10">
+            <div class="flex justify-between items-start mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-white">RESELLER DANZO</h2>
+                    <p class="text-green-500 font-mono text-sm">Status: Open</p>
+                </div>
+                <div class="bg-red-600 px-3 py-1 rounded text-[10px] font-bold animate-pulse">BEST VALUE</div>
+            </div>
+
+            <div class="mb-8 space-y-4">
+                <div class="feature-item">
+                    <span class="check-icon">✓</span>
+                    <span>Bisa Create Key Cheat Sepuasnya</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-icon">✓</span>
+                    <span>Bisa Jualan Cheat Sepuasnya</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-icon">✓</span>
+                    <span>Gabung Grup Khusus Reseller</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-icon">✓</span>
+                    <span>Full Tutorial Penggunaan</span>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 mb-8 text-center">
+                <p class="text-gray-500 text-xs uppercase mb-1">Biaya Pendaftaran</p>
+                <h3 class="text-4xl font-black text-white">Rp 200.000 <span class="text-sm text-gray-500">/ Selamanya</span></h3>
+            </div>
+
+            <button onclick="bukaModal()" class="btn-join-rainbow w-full py-4 rounded-xl font-black text-lg tracking-widest uppercase">
+                JOIN SEKARANG
+            </button>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mt-20 mb-20">
+        <div class="bg-black/50 p-6 rounded-2xl border border-gray-800 text-center">
+            <div class="text-3xl mb-3">💰</div>
+            <h4 class="font-bold mb-2 text-sm uppercase">Profit Tinggi</h4>
+            <p class="text-[11px] text-gray-500">Dapatkan keuntungan berlipat dengan harga modal termurah.</p>
+        </div>
+        <div class="bg-black/50 p-6 rounded-2xl border border-gray-800 text-center">
+            <div class="text-3xl mb-3">🚀</div>
+            <h4 class="font-bold mb-2 text-sm uppercase">Instan Akses</h4>
+            <p class="text-[11px] text-gray-500">Setelah aktivasi, kamu langsung bisa akses panel reseller.</p>
+        </div>
+        <div class="bg-black/50 p-6 rounded-2xl border border-gray-800 text-center">
+            <div class="text-3xl mb-3">🛠️</div>
+            <h4 class="font-bold mb-2 text-sm uppercase">Full Support</h4>
+            <p class="text-[11px] text-gray-500">Bimbingan sampai bisa jualan sendiri oleh team Danzo.</p>
+        </div>
+    </div>
+
+    <footer class="mt-auto py-10 text-gray-600 text-[10px] uppercase tracking-widest text-center">
+        &copy; 2026 DANZO STORE OFFICIAL - RESELLER PROGRAM
+    </footer>
+
+    <div id="modalReseller" class="modal">
+        <div class="modal-content text-center">
+            <button onclick="tutupModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition">✕</button>
+            <h2 class="text-red-500 font-bold mb-4 tracking-widest uppercase">KONFIRMASI JOIN</h2>
+            <p class="text-gray-400 text-[10px] mb-4 uppercase">Silakan Scan atau Download QRIS di bawah</p>
+            
+            <div class="bg-white p-2 rounded-xl mb-4 inline-block relative group">
+                <img id="qrisImage" src="photo_2026-02-28_15-27-14.jpg" class="w-48 h-48 object-contain cursor-pointer" alt="QRIS DANZO" onclick="bukaFullQR()">
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <button onclick="downloadQRIS()" class="btn-download py-2 rounded-lg font-bold text-[10px] uppercase flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                    </svg>
+                    Download QRIS
+                </button>
+
+                <a href="https://wa.me/6281994562778?text=Halo+Bang+Danzo,+Saya+sudah+transfer+200k+untuk+Join+Reseller" class="bg-green-600 py-3 rounded-lg font-bold text-sm hover:bg-green-500 transition uppercase mt-2">
+                    KONFIRMASI VIA WA
+                </a>
+                <p class="text-[9px] text-gray-600 italic mt-2">Wajib kirim bukti transfer ke Admin</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="fullScreenQR" onclick="tutupFullQR()">
+        <img src="photo_2026-02-28_15-27-14.jpg" class="max-w-[90%] max-h-[90%] object-contain border-4 border-white">
+    </div>
+
+    <script>
+        function bukaModal() {
+            document.getElementById('modalReseller').style.display = 'flex';
+        }
+
+        function tutupModal() {
+            document.getElementById('modalReseller').style.display = 'none';
+        }
+
+        function bukaFullQR() {
+            document.getElementById('fullScreenQR').style.display = 'flex';
+        }
+
+        function tutupFullQR() {
+            document.getElementById('fullScreenQR').style.display = 'none';
+        }
+
+        // --- FUNGSI DOWNLOAD QRIS ---
+        function downloadQRIS() {
+            const imageSrc = document.getElementById('qrisImage').src;
+            const link = document.createElement('a');
+            link.href = imageSrc;
+            link.download = 'QRIS_DANZO_STORE.jpg'; // Nama file pas di download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('modalReseller');
+            if (event.target == modal) {
+                tutupModal();
+            }
+        }
+
+        console.log("Danzo Reseller Page - Download Feature Ready");
+    </script>
+</body>
+</html>
